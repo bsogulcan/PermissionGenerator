@@ -57,5 +57,52 @@ namespace PermissionGenerator
                 }
             }
         }
+
+        private void btnGeneratePermissionContexts_Click(object sender, EventArgs e)
+        {
+            string[] entityList = txtEntities.Text.Split('\n');
+            if (entityList.Length == 0)
+                return;
+
+            txtOutput.Text = string.Empty;
+            foreach (var entity in entityList)
+            {
+                var entityName = StringHelper.GetEntityNameFromRow(entity);
+                if (!string.IsNullOrEmpty(entityName))
+                {
+                    if (cbEntitiesName.Checked)
+                        txtOutput.Text += StringHelper.CreatePermissionContext(entityName) +
+                                          Environment.NewLine;
+
+                    if (cbCreate.Checked)
+                        txtOutput.Text +=
+                            StringHelper.CreatePermissionContext(entityName + "_Create") +
+                            Environment.NewLine;
+
+                    if (cbUpdate.Checked)
+                        txtOutput.Text +=
+                            StringHelper.CreatePermissionContext(entityName + "_Update") +
+                            Environment.NewLine;
+
+                    if (cbGetList.Checked)
+                        txtOutput.Text +=
+                            StringHelper.CreatePermissionContext(entityName + "_GetList") +
+                            Environment.NewLine;
+
+                    if (cbGet.Checked)
+                        txtOutput.Text +=
+                            StringHelper.CreatePermissionContext(entityName + "_Get") +
+                            Environment.NewLine;
+
+
+                    if (cbDelete.Checked)
+                        txtOutput.Text +=
+                            StringHelper.CreatePermissionContext(entityName + "_Delete") +
+                            Environment.NewLine;
+
+                    txtOutput.Text += Environment.NewLine;
+                }
+            }
+        }
     }
 }

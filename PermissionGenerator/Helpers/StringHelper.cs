@@ -31,9 +31,14 @@ namespace PermissionGenerator.Helpers
             return entityName.Substring(lastDotIndex);
         }
 
-        public static string CreatePermissionName(string varribleName,string entityName)
+        public static string CreatePermissionName(string varribleName, string entityName)
         {
-            return $"public const string {varribleName} = {(char) 34 + entityName + (char) 34}";
+            return $"public const string {varribleName} = {(char) 34 + entityName + (char) 34};";
+        }
+
+        public static string CreatePermissionContext(string permissionName)
+        {
+            return $"context.CreatePermission(PermissionNames.{permissionName}, L(PermissionNames.{permissionName}));";
         }
     }
 }
