@@ -3,7 +3,7 @@
 namespace PermissionGenerator.Helpers
 {
     //public virtual DbSet<BaseMaterial> BaseMaterial { get; set; }
-    public static class StringParser
+    public static class StringHelper
     {
         public static string GetEntityNameFromRow(string entityRow)
         {
@@ -20,15 +20,20 @@ namespace PermissionGenerator.Helpers
             return "";
         }
 
-        public static bool IsDbSetProperty(string row)
+        private static bool IsDbSetProperty(string row)
         {
             return row.ToLower().Contains("dbset");
         }
 
-        public static string ExtractDotsFromEntityName(string entityName)
+        private static string ExtractDotsFromEntityName(string entityName)
         {
-            int lastDotIndex = entityName.LastIndexOf(".", StringComparison.Ordinal)+1;
+            int lastDotIndex = entityName.LastIndexOf(".", StringComparison.Ordinal) + 1;
             return entityName.Substring(lastDotIndex);
+        }
+
+        public static string CreatePermissionName(string varribleName,string entityName)
+        {
+            return $"public const string {varribleName} = {(char) 34 + entityName + (char) 34}";
         }
     }
 }

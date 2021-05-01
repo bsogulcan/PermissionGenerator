@@ -30,7 +30,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnGenerate = new System.Windows.Forms.Button();
+            this.btnGeneratePermissionNames = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbGetList = new System.Windows.Forms.CheckBox();
             this.cbGet = new System.Windows.Forms.CheckBox();
@@ -43,6 +43,7 @@
             this.txtEntities = new System.Windows.Forms.RichTextBox();
             this.pnlOutput = new System.Windows.Forms.GroupBox();
             this.txtOutput = new System.Windows.Forms.RichTextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -52,7 +53,8 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnGenerate);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnGeneratePermissionNames);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -60,15 +62,15 @@
             this.panel1.Size = new System.Drawing.Size(800, 58);
             this.panel1.TabIndex = 0;
             // 
-            // btnGenerate
+            // btnGeneratePermissionNames
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(422, 15);
-            this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(116, 37);
-            this.btnGenerate.TabIndex = 3;
-            this.btnGenerate.Text = "Generate!";
-            this.btnGenerate.UseVisualStyleBackColor = true;
-            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
+            this.btnGeneratePermissionNames.Location = new System.Drawing.Point(422, 15);
+            this.btnGeneratePermissionNames.Name = "btnGeneratePermissionNames";
+            this.btnGeneratePermissionNames.Size = new System.Drawing.Size(116, 37);
+            this.btnGeneratePermissionNames.TabIndex = 3;
+            this.btnGeneratePermissionNames.Text = "Generate Permission Names!";
+            this.btnGeneratePermissionNames.UseVisualStyleBackColor = true;
+            this.btnGeneratePermissionNames.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
             // groupBox1
             // 
@@ -200,6 +202,15 @@
             this.txtOutput.TabIndex = 7;
             this.txtOutput.Text = "";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(544, 15);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(116, 37);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Generate Permission Contexts!";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -218,11 +229,13 @@
             this.ResumeLayout(false);
         }
 
+        private System.Windows.Forms.Button button1;
+
         private System.Windows.Forms.GroupBox pnlOutput;
 
         private System.Windows.Forms.RichTextBox txtOutput;
 
-        private System.Windows.Forms.Button btnGenerate;
+        private System.Windows.Forms.Button btnGeneratePermissionNames;
         private System.Windows.Forms.CheckBox cbEntitiesName;
         private System.Windows.Forms.CheckBox cbCreate;
         private System.Windows.Forms.CheckBox cbUpdate;

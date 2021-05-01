@@ -20,10 +20,40 @@ namespace PermissionGenerator
             txtOutput.Text = string.Empty;
             foreach (var entity in entityList)
             {
-                var entityName = StringParser.GetEntityNameFromRow(entity);
+                var entityName = StringHelper.GetEntityNameFromRow(entity);
                 if (!string.IsNullOrEmpty(entityName))
                 {
-                    txtOutput.Text += entityName + Environment.NewLine;
+                    if (cbEntitiesName.Checked)
+                        txtOutput.Text += StringHelper.CreatePermissionName(entityName, entityName) +
+                                          Environment.NewLine;
+
+                    if (cbCreate.Checked)
+                        txtOutput.Text +=
+                            StringHelper.CreatePermissionName(entityName + "_Create", entityName + ".Create") +
+                            Environment.NewLine;
+
+                    if (cbUpdate.Checked)
+                        txtOutput.Text +=
+                            StringHelper.CreatePermissionName(entityName + "_Update", entityName + ".Update") +
+                            Environment.NewLine;
+
+                    if (cbGetList.Checked)
+                        txtOutput.Text +=
+                            StringHelper.CreatePermissionName(entityName + "_GetList", entityName + ".GetList") +
+                            Environment.NewLine;
+
+                    if (cbGet.Checked)
+                        txtOutput.Text +=
+                            StringHelper.CreatePermissionName(entityName + "_Get", entityName + ".Get") +
+                            Environment.NewLine;
+
+
+                    if (cbDelete.Checked)
+                        txtOutput.Text +=
+                            StringHelper.CreatePermissionName(entityName + "_Delete", entityName + ".Delete") +
+                            Environment.NewLine;
+
+                    txtOutput.Text += Environment.NewLine;
                 }
             }
         }
